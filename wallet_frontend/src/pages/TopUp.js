@@ -77,9 +77,6 @@ export default function TopUp() {
             }}
           >
             <form>
-              <Typography variant="subtitle1" color="textSecondary" style={{ marginTop: '8px' }}>
-                Current top-up method: {selectedCard === 'Linked Bank Account' ? 'Bank Account' : 'Debit Card'}: ****{selectedCard === 'Linked Bank Account' ? '5678' : '4321'}
-              </Typography>
               <FormControl fullWidth variant="outlined" style={{ marginTop: '16px' }}>
                 <TextField
                   autoComplete="amount"
@@ -101,39 +98,6 @@ export default function TopUp() {
               >
                 Top Up
               </Button>
-              <div style={{ marginTop: '16px' }}>
-                <Typography variant="subtitle2">Change Top-Up Method</Typography>
-                <FormControl fullWidth variant="outlined" style={{ marginTop: '8px' }}>
-                  <InputLabel>Select Card</InputLabel>
-                  <Select
-                    value={selectedCard}
-                    onChange={handleCardChange}
-                    label="Select Card"
-                  >
-                    {cards.map((card, index) => (
-                      <MenuItem key={index} value={card.type}>
-                        {card.type}: ****{card.last4Digits}
-                      </MenuItem>
-                    ))}
-                    <MenuItem value="AddNewCard">Add New Card</MenuItem>
-                  </Select>
-                </FormControl>
-                <FormControl fullWidth variant="outlined" style={{ marginTop: '8px' }}>
-                  <InputLabel>Select Bank Account</InputLabel>
-                  <Select
-                    value={selectedBankAccount}
-                    onChange={handleBankAccountChange}
-                    label="Select Bank Account"
-                  >
-                    {bankAccounts.map((account, index) => (
-                      <MenuItem key={index} value={account.type}>
-                        {account.type}: ****{account.last4Digits}
-                      </MenuItem>
-                    ))}
-                    <MenuItem value="AddNewBank">Add New Bank Account</MenuItem>
-                  </Select>
-                </FormControl>
-              </div>
             </form>
           </div>
         </div>
